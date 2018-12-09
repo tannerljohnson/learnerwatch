@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aws-amplify": "^1.1.13",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.5.1",
     "react": "^16.6.3",
@@ -14,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && aws s3 sync build/ s3://learnerwatch.com"
   },
   "eslintConfig": {
     "extends": "react-app"

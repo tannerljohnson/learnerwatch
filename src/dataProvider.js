@@ -10,7 +10,7 @@ import {
 } from 'react-admin';
 import { stringify } from 'query-string';
 
-const API_URL = 'my.api.url';
+const API_URL = 'https://ysu852rdea.execute-api.us-east-1.amazonaws.com/dev';
 
 /**
  * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
