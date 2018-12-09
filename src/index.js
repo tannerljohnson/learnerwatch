@@ -18,6 +18,12 @@ Amplify.configure({
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION
       },
+      {
+        name: "streamS3Data",
+        endpoint: config.lambda.URL,
+        service: config.lambda.TYPE,
+        region: config.lambda.REGION
+      }
     ]
   }
 });
