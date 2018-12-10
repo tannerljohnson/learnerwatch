@@ -9,23 +9,21 @@ export default class Dashboard extends Component{
     super(props);
 
     this.state = {
-      name: ''
+      records: []
     };
   }
 
   async componentDidMount() {
     // verify authenticated
     try {
-      await this.name();
-      // console.log("name is: " + name);
-      // this.setState({ name: name });
+      await this.getRecords();
     } catch (e) {
       alert(e);
     }
     // stop loading
   }
 
-  name() {
+  getRecords() {
     let apiName = 'store';
     let path = '/grade-events';
     let myInit = {
@@ -34,23 +32,23 @@ export default class Dashboard extends Component{
         }
     }
     API.get(apiName, path, myInit).then(response => {
-        console.log(response.body);
-        this.setState({name: response.body});
-        return response.body;
+        console.log(response.body.records);
+        this.setState({
+          records: response.body.records
+        });
     }).catch(error => {
         console.log(error.response)
-        return "ERROR";
     });
   }
 
-  renderName() {
+  renderRecords() {
     return this.state.name;
   }
 
   render () {
     return (
       <Card>
-          <CardHeader title={"Welcome to Learner Watch " + this.renderName()} />
+          <CardHeader title={"Welcome to Learner Watch"} />
           <CardContent>Your centralized home for analyzing caliper-generated learner data.</CardContent>
       </Card>
     );
