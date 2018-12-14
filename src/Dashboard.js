@@ -32,9 +32,9 @@ export default class Dashboard extends Component{
         }
     }
     API.get(apiName, path, myInit).then(response => {
-        console.log(response.body.records);
+        console.log(response.body.data);
         this.setState({
-          records: response.body.records
+          records: response.body.data
         });
     }).catch(error => {
         console.log(error.response)
